@@ -1,94 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8" />
-      <title>User Listing</title>
-      <link rel="stylesheet" href="css/styles.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
-   </head>
-   <body>
-      <div class="container">
-         <!-- Registration Form Starts Here -->
-         <div class="left-form">
-            <div class="reg-title">
-               <!--This is the Fa icon-->
-               <i class="fa fa-user"></i>
-               <h2>Registration</h2>
-            </div>
-            <form id="registrationForm">
-               <label>Full Name</label>
-               <input type="text" id="fname">
-               <label>Email Address</label>
-               <input type="email" id="email">
-               <label>Phone Number</label>
-               <input type="text" id="phone">
-               <label>Gender</label>
-               <select id="gender">
-                  <option value="">Select</option>
-                  <option>Male</option>
-                  <option>Female</option>
-                  <option>Other</option>
-               </select>
-               <button type="submit" id="submitBtn" disabled>Submit</button>
-            </form>
-         </div>
-         <!-- Registration Form Ends Here -->
-         <!-- User List Table Starts Here -->
-         <div class="right-user-table">
-            <div class="reg-title">
-               <i class="fa fa-user"></i>
-               <h2>Registered Users</h2>
-            </div>
-            <table id="userTable" align="left">
-               <thead>
-                  <tr>
-                     <th>#</th>
-                     <th>Name</th>
-                     <th>Email</th>
-                     <th>Phone</th>
-                     <th>Gender</th>
-                     <th>Actions</th>
-                  </tr>
-               </thead>
-               <tbody id="">
-                  <tr>
-                     <td>1</td>
-                     <td>John Doe</td>
-                     <td>john@gmail.com</td>
-                     <td>1234567890</td>
-                     <td>Male</td>
-                     <td><button class="edit"><i class="fa fa-edit"></i> Edit</button> <button class="delete"><i class="fa fa-remove"></i> Delete</button></td>
-                  </tr>
-                  <tr>
-                     <td>2</td>
-                     <td>John Doe</td>
-                     <td>john@gmail.com</td>
-                     <td>1234567890</td>
-                     <td>Male</td>
-                     <td><button class="edit"><i class="fa fa-edit"></i> Edit</button> <button class="delete"><i class="fa fa-remove"></i> Delete</button></td>
-                  </tr>
-                  <tr>
-                     <td>3</td>
-                     <td>John Doe</td>
-                     <td>john@gmail.com</td>
-                     <td>1234567890</td>
-                     <td>Male</td>
-                     <td><button class="edit"><i class="fa fa-edit"></i> Edit</button> <button class="delete"><i class="fa fa-remove"></i> Delete</button></td>
-                  </tr>
-                  <tr>
-                     <td>4</td>
-                     <td>John Doe</td>
-                     <td>john@gmail.com</td>
-                     <td>1234567890</td>
-                     <td>Male</td>
-                     <td><button class="edit"><i class="fa fa-edit"></i> Edit</button> <button class="delete"><i class="fa fa-remove"></i> Delete</button></td>
-                  </tr>
-                  </tr>
-               </tbody>
-            </table>
-         </div>
-         <!-- User List Table Ends Here -->
-      </div>
-      <!--Container Ends Here -->
-   </body>
+<head>
+  <meta charset="UTF-8" />
+  <title>User Listing</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="container">
+  <!-- Registration Form Starts Here -->
+  <div class="left-form">
+    <h2>Registration</h2>
+    <form id="addUserForm">
+      <label>Full Name</label>
+      <input type="text" id="name" required>
+
+      <label>Email Address</label>
+      <input type="email" id="email" required>
+
+      <label>Phone Number</label>
+      <input type="text" id="phone" required>
+
+      <label>Gender</label>
+      <select id="gender" required>
+        <option value="">Select</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+
+      <button type="submit" id="buttonSubmit">Submit</button>
+    </form>
+  </div>
+  <!-- Registration Form Ends Here -->
+
+  <!-- User List Table Starts Here -->
+  <div class="right-user-table">
+    <h2>Registered Users</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Gender</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="userTableBody"></tbody>
+    </table>
+  </div>
+  <!-- User List Table Ends Here -->
+</div>
+<!--Container Ends Here -->
+
+
+<script>
+   const userform = document.getElementById('addUserForm');
+   const tableBody = document.getElementById('userTableBody');
+   const buttonSubmit = document.getElementById('buttonSubmit');
+
+   const nameField = document.getElementById('name');
+   const emailField = document.getElementById('email');
+   const phoneField = document.getElementById('phone');
+   const genderField = document.getElementById('gender');
+ 
+   let userCount = 0;
+   let editRow = null;
+ 
+   userform.addEventListener('submit', function (e) {
+     e.preventDefault();
+      
+     const name = nameField.value.trim();
+     const email = emailField.value.trim();
+     const phone = phoneField.value.trim();
+     const gender = genderField.value;
+ 
+     if (!name || !email || !phone || !gender) return;
+ 
+     if (editRow) {
+       // UPDATE
+       editRow.children[1].innerText = name;
+       editRow.children[2].innerText = email;
+       editRow.children[3].innerText = phone;
+       editRow.children[4].innerText = gender;
+ 
+       buttonSubmit.innerText = "Register";
+       editRow = null;
+     } else {
+       // ADD
+       userCount++;
+       const row = document.createElement('tr');
+       row.innerHTML = `
+         <td>${userCount}</td>
+         <td>${name}</td>
+         <td>${email}</td>
+         <td>${phone}</td>
+         <td>${gender}</td>
+         <td>
+           <button class="action-btn edit" onclick="editUser(this)">Edit</button>
+           <button class="action-btn delete" onclick="deleteUser(this)">Delete</button>
+         </td>
+       `;
+       tableBody.appendChild(row);
+     }
+ 
+     userform.reset();
+   });
+ 
+   function editUser(btn) {
+     editRow = btn.closest('tr'); 
+     nameField.value = editRow.children[1].innerText;
+     emailField.value = editRow.children[2].innerText;
+     phoneField.value = editRow.children[3].innerText;
+     genderField.value = editRow.children[4].innerText;
+ 
+     buttonSubmit.innerText = "Update";
+   }
+ 
+   function deleteUser(btn) {
+     if (confirm("Are you sure you want to delete?")) {
+       btn.closest('tr').remove();
+     }
+   }
+ 
+
+ </script>
+</body>
 </html>
