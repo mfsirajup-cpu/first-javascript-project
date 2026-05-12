@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <title>User Listing</title>
+      <link rel="stylesheet" href="css/styles.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+   </head>
+   <body>
+      <div class="container">
+         <!-- Registration Form Starts Here -->
+         <div class="left-form">
+            <div class="reg-title">
+               <!--This is the Fa icon-->
+               <i class="fa fa-user"></i>
+               <h2>Registration</h2>
+            </div>
+            <form id="registrationForm">
+               <label>Full Name</label>
+               <input type="text" id="fname">
+               <label>Email Address</label>
+               <input type="email" id="email">
+               <label>Phone Number</label>
+               <input type="text" id="phone">
+               <label>Gender</label>
+               <select id="gender">
+                  <option value="">Select</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                  <option>Other</option>
+               </select>
+               <button type="submit" id="submitBtn" disabled>Submit</button>
+            </form>
+         </div>
+         <!-- Registration Form Ends Here -->
+         <!-- User List Table Starts Here -->
+         <div class="right-user-table">
+            <div class="reg-title">
+               <i class="fa fa-user"></i>
+               <h2>Registered Users</h2>
+            </div>
+            <table id="userTable" align="left">
+               <thead>
+                  <tr>
+                     <th>#</th>
+                     <th>Name</th>
+                     <th>Email</th>
+                     <th>Phone</th>
+                     <th>Gender</th>
+                     <th>Actions</th>
+                  </tr>
+               </thead>
+               <tbody id="">
+                  <tr>
+                     <td>1</td>
+                     <td>John Doe</td>
+                     <td>john@gmail.com</td>
+                     <td>1234567890</td>
+                     <td>Male</td>
+                     <td><button class="edit"><i class="fa fa-edit"></i> Edit</button> <button class="delete"><i class="fa fa-remove"></i> Delete</button></td>
+                  </tr>
+                  <tr>
+                     <td>2</td>
+                     <td>John Doe</td>
+                     <td>john@gmail.com</td>
+                     <td>1234567890</td>
+                     <td>Male</td>
+                     <td><button class="edit"><i class="fa fa-edit"></i> Edit</button> <button class="delete"><i class="fa fa-remove"></i> Delete</button></td>
+                  </tr>
+                  <tr>
+                     <td>3</td>
+                     <td>John Doe</td>
+                     <td>john@gmail.com</td>
+                     <td>1234567890</td>
+                     <td>Male</td>
+                     <td><button class="edit"><i class="fa fa-edit"></i> Edit</button> <button class="delete"><i class="fa fa-remove"></i> Delete</button></td>
+                  </tr>
+                  <tr>
+                     <td>4</td>
+                     <td>John Doe</td>
+                     <td>john@gmail.com</td>
+                     <td>1234567890</td>
+                     <td>Male</td>
+                     <td><button class="edit"><i class="fa fa-edit"></i> Edit</button> <button class="delete"><i class="fa fa-remove"></i> Delete</button></td>
+                  </tr>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+         <!-- User List Table Ends Here -->
+      </div>
+      <!--Container Ends Here -->
+   </body>
+</html>
