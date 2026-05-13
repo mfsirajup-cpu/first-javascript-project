@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Add | Remove | Toggle</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    * {
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .div-center{text-align: center;}
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      text-align: center;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .card {
+      background: #efefef;
+      width: 30%;
+      margin: 20px;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+    }
+
+    .card-flex {
+      display: flex;
+      flex-direction: row;
+    }
+
+    #box,
+    #box-second {
+      background: red;
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
+      transition: all 0.5s ease-in-out;
+    }
+
+    #box.highlight {
+      background: green;
+      border-radius: 100px;
+    }
+
+    button {
+      margin-top: 10px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input,
+    select {
+      border: 1px solid #aaa;
+      width: 100%;
+      height: 36px;
+      margin-bottom: 5px;
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!--Form-->
+  <div class="div-center"><h1>JavaScript Exercises</h1></div>
+  <div class="container">
+    <div class="card">
+      <h2>Variables let</h2>
+      <p> x, y, and z are variables.</p>
+
+      <p id="letvar"></p>
+    </div>
+
+    <div class="card">
+      <h2>Variables const</h2>
+      <p> a, b, and c are variables.</p>
+
+      <p id="constvar"></p>
+    </div>
+
+    <div class="card">
+      <h2>Arithmetic Operators</h2>
+      <p id="arithmeticResult"></p>
+    </div>
+
+    <div class="card">
+      <h2>Add() Method</h2>
+      <div id="box"></div>
+      <button type="submit" onclick="colorchange()">Change Color</button>
+    </div>
+
+
+
+    <div class="card">
+      <h2>remove() Method</h2>
+      <p id="removeBox">Hide on button click</p>
+      <button onclick="removeFunction()">Remove</button>
+    </div>
+
+    <div class="card">
+      <h2>Append() Method</h2>
+      <div id="apDiv">-----</div>
+      <button onclick="apFunction()">Append</button>
+    </div>
+
+    <div class="card">
+      <h2>Prepend() Method</h2>
+      <div id="preDiv">-----</div>
+      <button onclick="preFunction()">Prepend</button>
+    </div>
+
+    <div class="card">
+      <h2>After() Method</h2>
+      <div id="afterDiv">Hello</div>
+      <br>
+      <button onclick="afterFunction()">Click here</button>
+    </div>
+
+    <div class="card">
+      <h2>before() Method</h2>
+      <div id="beforeDiv">Hello</div>
+      <br>
+      <button onclick="beforeFunction()">Click here</button>
+    </div>
+
+    <div class="card">
+      <h1>Arrays</h1>
+      <h2>Push() Method</h2>
+      <p id="pushitem"></p>
+    </div>
+
+
+    <div class="card">
+      <h1>Arrays</h1>
+      <h2>The shift() Method</h2>
+      <p id="shiftDiv"></p>
+    </div>
+
+
+    <div class="card card-flex">
+      <div>
+        <h2>Form Submit and shows result</h2>
+        <form id="registrationform">
+          <input type="text" id="fname" placeholder="First Name">
+          <input type="text" id="lname" placeholder="Last Name">
+          <input type="email" id="emailsecond" placeholder="Email">
+          <select id="gender">
+            <option value="">Select Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      <div id="result-box"></div>
+    </div>
+
+
+
+
+
+  </div>
+
+
+
+  <script>
+
+    //let
+    let x = 5;
+    let y = 9;
+    let z = x + y;
+    document.getElementById("letvar").innerHTML = "value of z is " + z;
+
+    //const
+    let a = 5;
+    let b = 6;
+    let c = a + b;
+    document.getElementById("constvar").innerHTML = "value of c is " + c;
+
+
+    //Arithmatic Oparatroe
+
+    let m = 10;
+    let n = 3;
+
+    let output = "";
+    output += "Addition (m + n): " + (m + n) + "<br>";
+    output += "Subtraction (m - n): " + (m - n) + "<br>";
+    output += "Multiplication (m * n): " + (m * n) + "<br>";
+    output += "Division (m / n): " + (m / n) + "<br>";
+    output += "Modulus (m % n): " + (m % n) + "<br>";
+    output += "Increment (++m): " + (++m) + "<br>";
+    output += "Decrement (--n): " + (--n) + "<br>";
+
+    document.getElementById("arithmeticResult").innerHTML = output;
+
+    //add
+    function colorchange() {
+      const box = document.getElementById("box").classList;
+      box.add("highlight");
+    }
+
+    //remove
+    function removeFunction() {
+      const delBox = document.getElementById("removeBox");
+      delBox.remove();
+    }
+
+
+    //Append
+    function apFunction() {
+
+      const apdiv = document.getElementById("apDiv");
+      apdiv.append(" text added after div");
+
+    }
+
+
+    //Prepend
+    function preFunction() {
+
+      const prediv = document.getElementById("preDiv");
+      prediv.prepend("text added before div ");
+
+    }
+
+    //after
+    function afterFunction() {
+      const afterdiv = document.getElementById("afterDiv");
+      afterdiv.after("Adding text with after");
+
+    }
+
+    //before
+    function beforeFunction() {
+      const beforediv = document.getElementById("beforeDiv");
+      beforediv.before("Adding text with before");
+
+    }
+
+    //push
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.push("Kiwi");
+    document.getElementById("pushitem").innerHTML = fruits;
+
+    //Shift
+    const fruitsshift = ["Banana", "Orange", "Apple", "Mango"];
+    document.getElementById("shiftDiv").innerHTML = fruitsshift.shift();
+
+    //Form
+    const regForm = document.getElementById('registrationform');
+    const result = document.getElementById('result-box');
+
+    regForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const fieldFname = document.getElementById('fname').value;
+      const fieldLname = document.getElementById('lname').value;
+      const fieldEmail = document.getElementById('emailsecond').value;
+      const fieldGender = document.getElementById('gender').value;
+
+      result.innerHTML = `
+      <h3>Form Data</h3>
+      <hr>
+      <p><b>First Name:</b> ${fieldFname}</p>
+      <p><b>Last Name:</b> ${fieldLname}</p>
+      <p><b>Email:</b> ${fieldEmail}</p>
+      <p><b>Gender:</b> ${fieldGender}</p>
+    `;
+    });
+
+  </script>
+</body>
+
+</html>
