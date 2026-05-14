@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-* {box-sizing: border-box;}
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -9,7 +12,7 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-.container{
+.container {
   display: flex;
   gap: 20px;
   max-width: 1440px;
@@ -24,9 +27,21 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-.left-form { flex: 1; }
-.right-user-table { flex: 2; }
-.right-user-table thead{text-align: left;}
+.table-responsive {
+  overflow-x: auto;
+}
+
+.left-form {
+  flex: 1;
+}
+
+.right-user-table {
+  flex: 2;
+}
+
+.right-user-table thead {
+  text-align: left;
+}
 
 .left-form label {
   display: block;
@@ -34,7 +49,9 @@ body {
   color: #333;
 }
 
-input, select, button {
+input,
+select,
+button {
   width: 100%;
   height: 54px;
   padding: 10px;
@@ -54,7 +71,9 @@ input, select, button {
   font-size: 20px;
 }
 
-button:hover { background: #1e40af; }
+button:hover {
+  background: #1e40af;
+}
 
 .right-user-table .edit {
   background: #25eb88;
@@ -66,7 +85,9 @@ button:hover { background: #1e40af; }
   height: auto;
 }
 
-.right-user-table .edit:hover{background: #1ebb6d;}
+.right-user-table .edit:hover {
+  background: #1ebb6d;
+}
 
 .right-user-table .delete {
   background: #eb2525;
@@ -78,19 +99,24 @@ button:hover { background: #1e40af; }
   height: auto;
 }
 
-.right-user-table .delete:hover {background: #bd1f1f;}
+.right-user-table .delete:hover {
+  background: #bd1f1f;
+}
 
 table {
   width: 100%;
   border-collapse: collapse;
 }
 
-th, td {
+th,
+td {
   padding: 10px;
   border: 1px solid #ddd;
 }
 
-th { background: #f1f5f9; }
+th {
+  background: #f1f5f9;
+}
 
 .action-btn {
   padding: 6px 10px;
@@ -100,15 +126,27 @@ th { background: #f1f5f9; }
   cursor: pointer;
 }
 
-.reg-title{display: flex;align-items: center;display: flex;gap: 15px;}
+.reg-title {
+  display: flex;
+  align-items: center;
+  display: flex;
+  gap: 15px;
+}
 
-.edit { background: #22c55e; color: #fff; }
-.delete { background: #ef4444; color: #fff; }
+.edit {
+  background: #22c55e;
+  color: #fff;
+}
+
+.delete {
+  background: #ef4444;
+  color: #fff;
+}
 
 
 /* CSS */
 .disabled-btn {
-  pointer-events: none; 
+  pointer-events: none;
   opacity: 0.5;
 }
 
@@ -119,5 +157,7 @@ th { background: #f1f5f9; }
 }
 
 @media (max-width: 768px) {
-  .container { flex-direction: column; }
+  .container {
+    flex-direction: column;
+  }
 }

@@ -36,6 +36,7 @@
   <!-- User List Table Starts Here -->
   <div class="right-user-table">
     <h2>Registered Users</h2>
+    <div class="table-responsive">
     <table>
       <thead>
         <tr>
@@ -49,6 +50,7 @@
       </thead>
       <tbody id="userTableBody"></tbody>
     </table>
+    </div>
   </div>
   <!-- User List Table Ends Here -->
 </div>
@@ -58,7 +60,6 @@
 <script>
    const userform = document.getElementById('addUserForm');
    const tableBody = document.getElementById('userTableBody');
-   const buttonSubmit = document.getElementById('buttonSubmit');
 
    const nameField = document.getElementById('name');
    const emailField = document.getElementById('email');
@@ -76,7 +77,7 @@
      const phone = phoneField.value.trim();
      const gender = genderField.value;
  
-     if (!name || !email || !phone || !gender) return;
+    //  if (!nameField || !emailField || !phoneField || !genderField) return;
  
      if (editRow) {
        // UPDATE
@@ -85,7 +86,7 @@
        editRow.children[3].innerText = phone;
        editRow.children[4].innerText = gender;
  
-       buttonSubmit.innerText = "Register";
+       buttonSubmit.innerText = "Submit";
        editRow = null;
      } else {
        // ADD
