@@ -13,7 +13,13 @@
       font-family: "Poppins", sans-serif;
     }
 
-    .div-center{text-align: center;}
+    p {
+      margin: 0;
+    }
+
+    .div-center {
+      text-align: center;
+    }
 
     body {
       margin: 0;
@@ -27,6 +33,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      max-width: max-content;
     }
 
     .card {
@@ -62,6 +69,13 @@
 
     button {
       margin-top: 10px;
+      display: inline-block;
+      width: auto;
+      cursor: pointer;
+    }
+
+    button:hover {
+      color: #fff;
     }
 
     label {
@@ -83,7 +97,9 @@
 <body>
 
   <!--Form-->
-  <div class="div-center"><h1>JavaScript Exercises</h1></div>
+  <div class="div-center">
+    <h1>JavaScript Exercises</h1>
+  </div>
   <div class="container">
     <div class="card">
       <h2>Variables let</h2>
@@ -103,6 +119,51 @@
       <h2>Arithmetic Operators</h2>
       <p id="arithmeticResult"></p>
     </div>
+
+    <!--querySelector() Method-->
+    <div class="card">
+      <h2>querySelector() Method</h2>
+
+      <p>Add color to the first element with class="qs-example".</p>
+
+      <p class="qs-example">I am a paragraph.</p>
+      <p class="qs-example">I am a paragraph.</p>
+
+      <button type="submit" onclick="onlyfirstchange()">Only First Color Change</button>
+
+
+    </div>
+
+
+    <!--querySelectorAll() Method-->
+    <div class="card">
+      <h2>querySelectorAll() Method</h2>
+
+      <p>Add a background color all elements with class="qsa-example".</p>
+      <h2 class="qsa-example">A heading</h2>
+      <p class="qsa-example">A paragraph.</p>
+
+
+    </div>
+
+
+    <!--getElementById() Method-->
+    <div class="card">
+      <h2>getElementById() Method</h2>
+
+      <h1 id="gebi-demo">The Document Object</h1>
+
+
+    </div>
+
+    <!--CeateElement-->
+    <div class="card">
+    <h2>createElement() Method</h2>
+    <!-- <p>Create a p element with some text:</p> -->
+  </div>
+
+
+
 
     <div class="card">
       <h2>Add() Method</h2>
@@ -214,6 +275,29 @@
     output += "Decrement (--n): " + (--n) + "<br>";
 
     document.getElementById("arithmeticResult").innerHTML = output;
+
+    //queryselector
+    function onlyfirstchange() {
+      document.querySelector(".qs-example").style.color = "red";
+    };
+
+
+    //queryselectorAll ()
+    const nodeList = document.querySelectorAll(".qsa-example");
+    for (let i = 0; i < nodeList.length; i++) {
+      nodeList[i].style.backgroundColor = "red";
+    }
+
+
+    //getElementById ()
+    const myEle = document.getElementById("gebi-demo");
+    myEle.style.color = "red";
+
+    //createElement ()
+    const paraone = document.createElement("h1");
+    paraone.innerText = "This is a paragraph printed";
+    // document.body.appendChild(paraone);
+
 
     //add
     function colorchange() {
