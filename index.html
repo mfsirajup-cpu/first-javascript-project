@@ -58,7 +58,7 @@
 
 
 <script>
-   const userform = document.getElementById('addUserForm');
+   const userForm = document.getElementById('addUserForm');
    const tableBody = document.getElementById('userTableBody');
 
    const nameField = document.getElementById('name');
@@ -69,7 +69,7 @@
    let userCount = 0;
    let editRow = null;
  
-   userform.addEventListener('submit', function (e) {
+   userForm.addEventListener('submit', function (e) {
      e.preventDefault();
       
      const name = nameField.value.trim();
@@ -106,7 +106,7 @@
        tableBody.appendChild(row);
      }
  
-     userform.reset();
+     userForm.reset();
    });
  
    function editUser(btn) {
